@@ -4,12 +4,12 @@
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-        public string House { get; private set; }
+        public House House { get; private set; }
         public int Money { get; private set; }
         public List<Item> PersonalItems { get; private set; }
 
 
-        public Character(string firstName, string lastName, string house, int money, List<Item> personalItems)
+        public Character(string firstName, string lastName, House house, int money, List<Item> personalItems)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -22,7 +22,7 @@
         {
             Console.WriteLine("Character info:");
             Console.WriteLine();
-            Console.WriteLine($"Name: {FirstName} {LastName}\nHouse: {House}\nGold coins: {Money}");
+            Console.WriteLine($"Name: {FirstName} {LastName}\nHouse: {House.Name}\nGold coins: {Money}");
             Console.WriteLine();
         }
 

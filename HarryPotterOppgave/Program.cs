@@ -32,7 +32,7 @@ Karakteren som mottar brevet, får da brevet i inventoryen. Et brev inneholder e
 
 using HarryPotterOppgave;
 
-Character tim = new("Tim", "Timber", "Hufflepuff", 50, new List<Item>()
+Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 50, new List<Item>()
 {
     new("Compass", "Old, rusty compass that belonged to grandfather", 1),
     new("Wand", "Plain oak wand", 1),
