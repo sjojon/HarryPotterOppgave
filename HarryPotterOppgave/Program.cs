@@ -32,13 +32,20 @@ Karakteren som mottar brevet, får da brevet i inventoryen. Et brev inneholder e
 
 using HarryPotterOppgave;
 
-Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 50, new List<Item>()
-{
-    new("Compass", "Old, rusty compass that belonged to grandfather", 1),
-    new("Wand", "Plain oak wand", 1),
-    new("Glasses", "Normal round glasses", 1),
-    new("Magical beans", "Beans that grow in one night", 5)
-});
+Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 50,
+    new List<Item>()
+    {
+        new("Compass", "Old, rusty compass that belonged to grandfather", 1),
+        new("Wand", "Plain oak wand", 1),
+        new("Glasses", "Normal round glasses", 1),
+        new("Magical beans", "Beans that grow in one night", 5)
+    },
+    new List<Spell>()
+    {
+        new("Vingardium leviosa", "Make things levitate"),
+        new("Hokus pokus", "Lights up fireworks"),
+        new("Luminos", "Lights up wand like a flashlight"),
+    });
 
 //Item wand = new("Wand", "Plain oak wand", 1);
 //Item glasses = new("Glasses", "Normal round glasses", 1);
@@ -48,6 +55,7 @@ Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuf
 //tim.AddItem(magicalBeans);
 tim.DisplayCharacter();
 tim.InventoryItems();
+tim.ListOfSpells();
 Menu();
 
 void Menu()
