@@ -8,10 +8,11 @@
         public int Money { get; private set; }
         public List<Item> PersonalItems { get; private set; }
         public List<Spell> Spells { get; private set; }
+        public List<Pet> Pets { get; private set; }
 
 
         public Character(string firstName, string lastName, House house, int money, List<Item> personalItems,
-            List<Spell> spells)
+            List<Spell> spells, List<Pet> pets)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -19,9 +20,10 @@
             Money = money;
             PersonalItems = personalItems;
             Spells = spells;
+            Pets = pets;
         }
 
-        public void DisplayCharacter() // Character character
+        public void DisplayCharacter()
         {
             Console.WriteLine("Character info:");
             Console.WriteLine();
@@ -57,6 +59,17 @@
             foreach (var spell in Spells)
             {
                 spell.PrintSpellDescription();
+                Console.WriteLine();
+            }
+        }
+
+        public void ListOfPets() // TODO: Legge til logikk for å se om lista er tom.
+        {
+            Console.WriteLine("Currently owned pets:");
+            Console.WriteLine();
+            foreach (var pet in Pets)
+            {
+                pet.PetDetails();
                 Console.WriteLine();
             }
         }

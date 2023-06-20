@@ -32,19 +32,36 @@ Karakteren som mottar brevet, får da brevet i inventoryen. Et brev inneholder e
 
 using HarryPotterOppgave;
 
-Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 50,
+Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 200,
     new List<Item>()
     {
-        new("Compass", "Old, rusty compass that belonged to grandfather", 1),
-        new("Wand", "Plain oak wand", 1),
-        new("Glasses", "Normal round glasses", 1),
-        new("Magical beans", "Beans that grow in one night", 5)
+        new("Compass", "Old, rusty compass that belonged to grandfather", 1, 25),
+        new("Oak Wand", "Plain oak wand", 1, 40),
+        new("Glasses", "Normal round glasses", 1, 150),
+        new("Magical beans", "Beans that grow in one night", 5, 15)
     },
     new List<Spell>()
     {
         new("Vingardium leviosa", "Make things levitate"),
         new("Hokus pokus", "Lights up fireworks"),
         new("Luminos", "Lights up wand like a flashlight"),
+    },
+    new List<Pet>()
+    {
+    });
+
+MagicShop magicShop = new("The Black Toad", 5000,
+    new List<Item>()
+    {
+        new("Phoenix Wand", "Wand made from the ashes of a Phoenix", 4, 200),
+        new("Unicorn Wand", "Wand made from the horn of a unicorn", 2, 150),
+        new("Troll Wand", "Wand made from the bones of a troll", 6, 75),
+    },
+    new List<Pet>()
+    {
+        new("Herbert", "Send Letter", "Owl", 75),
+        new("Ratty", "Scouting in tight spaces", "Rat", 25),
+        new("Kitty", "Dark vision", "Cat", 50),
     });
 
 //Item wand = new("Wand", "Plain oak wand", 1);
@@ -56,6 +73,7 @@ Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuf
 tim.DisplayCharacter();
 tim.InventoryItems();
 tim.ListOfSpells();
+tim.ListOfPets();
 Menu();
 
 void Menu()

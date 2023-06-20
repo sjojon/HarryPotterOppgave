@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace HarryPotterOppgave
+﻿namespace HarryPotterOppgave
 {
     internal class Spell
     {
