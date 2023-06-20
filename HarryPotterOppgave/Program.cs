@@ -141,6 +141,7 @@ void CreateCharacter()
 
     Console.WriteLine("Choose your House:\n1. Hufflepuff\n2. Griffindor\n3. Ravenclaw\n4. Slytherin");
     int input = int.Parse(Console.ReadLine());
+
     switch (input)
     {
         case 1:
@@ -159,7 +160,7 @@ void CreateCharacter()
             house = "Slytherin";
             houseDescription = "House of Slytherin";
             break;
-    }
+    } // TODO: Må legge til så denne looper hvis det blir skrevet feil
 
 
     Character character = new(firstName, lastName, new House(house, houseDescription), 200, new List<Item>(),
