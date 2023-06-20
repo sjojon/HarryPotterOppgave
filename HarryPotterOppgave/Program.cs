@@ -30,15 +30,15 @@ Dersom en karakter har en ugle, har de mulighet til å sende et brev med uglen t
 Karakteren som mottar brevet, får da brevet i inventoryen. Et brev inneholder en melding.
  */
 
-using HarryPotterOppgave;
-
-Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 200,
+/*
+                    TODO: Original program.cs
+ Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 200,
     new List<Item>()
     {
         new("Compass", "Old, rusty compass that belonged to grandfather", 1, 25),
-        new("Oak Wand", "Plain oak wand", 1, 40),
+        new("Oak Wand", "Plain wand made from Oak", 1, 40),
         new("Glasses", "Normal round glasses", 1, 150),
-        new("Magical beans", "Beans that grow in one night", 5, 15)
+        new("Magical beans", "Beans that grow in one night", 5, 15),
     },
     new List<Spell>()
     {
@@ -64,12 +64,52 @@ MagicShop magicShop = new("The Black Toad", 5000,
         new("Kitty", "Dark vision", "Cat", 50),
     });
 
-//Item wand = new("Wand", "Plain oak wand", 1);
-//Item glasses = new("Glasses", "Normal round glasses", 1);
-//Item magicalBeans = new("Magical beans", "Beans that grow in one night", 5);
-//tim.AddItem(wand);
-//tim.AddItem(glasses);
-//tim.AddItem(magicalBeans);
+Item wand = new("Wand", "Plain oak wand", 1);
+Item glasses = new("Glasses", "Normal round glasses", 1);
+Item magicalBeans = new("Magical beans", "Beans that grow in one night", 5);
+tim.AddItem(wand);
+tim.AddItem(glasses);
+tim.AddItem(magicalBeans);
+tim.DisplayCharacter();
+tim.InventoryItems();
+tim.ListOfSpells();
+tim.ListOfPets();
+ */
+
+using HarryPotterOppgave;
+
+Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 200,
+    new List<Item>()
+    {
+        ItemList.Compass,
+        ItemList.Glasses,
+        ItemList.MagicalBeans,
+        WandList.OakWand
+    },
+    new List<Spell>()
+    {
+        SpellList.Vingardium,
+        SpellList.HokusPokus,
+        SpellList.Luminos
+    },
+    new List<Pet>()
+    {
+    });
+
+MagicShop magicShop = new("The Black Toad", 5000,
+    new List<Item>()
+    {
+        WandList.PhoenixWand,
+        WandList.UnicornWand,
+        WandList.TrollWand
+    },
+    new List<Pet>()
+    {
+        PetList.Owl,
+        PetList.Rat,
+        PetList.Cat
+    });
+
 tim.DisplayCharacter();
 tim.InventoryItems();
 tim.ListOfSpells();
@@ -81,7 +121,7 @@ void Menu()
     bool flag = true;
     while (flag)
     {
-        Console.Clear(); // TODO: Slå av denne for testing av Tim.
+        //Console.Clear(); // TODO: Slå av denne for testing av Tim.
         Console.WriteLine("Welcome to Hogwarts!");
         Console.WriteLine("What do you want to do?");
         Console.WriteLine(
