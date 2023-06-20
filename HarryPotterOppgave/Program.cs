@@ -81,22 +81,106 @@ void Menu()
     bool flag = true;
     while (flag)
     {
+        Console.Clear(); // TODO: Slå av denne for testing av Tim.
         Console.WriteLine("Welcome to Hogwarts!");
         Console.WriteLine("What do you want to do?");
         Console.WriteLine(
-            "1. Create Character\n2. Edit Character\n3. Enter Magic shop\n4. Send letter (Must own owl)\n5. Exit");
+            "1. Character editing\n2. Do magic\n3. Enter Magic shop\n4. Send letter (Must own owl)\n5. Exit");
         int answer = int.Parse(Console.ReadLine());
         switch (answer)
         {
             case 1:
-
+                CharacterControl();
                 break;
             case 2:
-
+                DoMagic();
+                break;
+            case 3:
+                MagicShopMenu();
+                break;
+            case 4:
+                SendLetter();
                 break;
             case 5:
                 flag = false;
                 break;
         }
     }
+}
+
+void CharacterControl()
+{
+    Console.Clear();
+    Console.WriteLine("This is the Character creation and editing screen:");
+    Console.WriteLine("1. Create character\n2. Edit character\n3. Main menu");
+    int input = int.Parse(Console.ReadLine());
+    switch (input)
+    {
+        case 1:
+            CreateCharacter();
+            break;
+        case 2:
+            EditCharacter();
+            break;
+        case 3:
+            Menu();
+            break;
+    }
+}
+
+void CreateCharacter()
+{
+    int input = int.Parse(Console.ReadLine());
+    switch (input)
+    {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            CharacterControl();
+            break;
+    }
+}
+
+void EditCharacter()
+{
+    int input = int.Parse(Console.ReadLine());
+    switch (input)
+    {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            CharacterControl();
+            break;
+    }
+}
+
+void DoMagic()
+{
+}
+
+void MagicShopMenu()
+{
+    Console.Clear();
+    Console.WriteLine($"Welcome to {magicShop.Name} magic shop!");
+    Console.WriteLine("What can we do for you today?");
+    Console.WriteLine("1. Buy pet\n2. Buy wand\n3. Main menu");
+    int input = int.Parse(Console.ReadLine());
+    switch (input)
+    {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            Menu();
+            break;
+    }
+}
+
+void SendLetter()
+{
 }
