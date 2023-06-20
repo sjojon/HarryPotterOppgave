@@ -81,7 +81,7 @@ void Menu()
     bool flag = true;
     while (flag)
     {
-        Console.Clear(); // TODO: Slå av denne for testing av Tim.
+        //Console.Clear(); // TODO: Slå av denne for testing av Tim.
         Console.WriteLine("Welcome to Hogwarts!");
         Console.WriteLine("What do you want to do?");
         Console.WriteLine(

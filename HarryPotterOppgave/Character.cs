@@ -63,13 +63,21 @@
             }
         }
 
-        public void ListOfPets() // TODO: Legge til logikk for å se om lista er tom.
+        public void ListOfPets()
         {
             Console.WriteLine("Currently owned pets:");
             Console.WriteLine();
-            foreach (var pet in Pets)
+            if (Pets.Count != 0)
             {
-                pet.PetDetails();
+                foreach (var pet in Pets)
+                {
+                    pet.PetDetails();
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("You don't own any pets!");
                 Console.WriteLine();
             }
         }
