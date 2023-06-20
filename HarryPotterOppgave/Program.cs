@@ -81,11 +81,11 @@ void Menu()
     bool flag = true;
     while (flag)
     {
-        //Console.Clear(); // TODO: Slå av denne for testing av Tim.
+        Console.Clear(); // TODO: Slå av denne for testing av Tim.
         Console.WriteLine("Welcome to Hogwarts!");
         Console.WriteLine("What do you want to do?");
         Console.WriteLine(
-            "1. Character editing\n2. Do magic\n3. Enter Magic shop\n4. Send letter (Must own owl)\n5. Exit");
+            "1. Character editing\n2. Do magic\n3. Enter magic shop\n4. Send letter (Must own owl)\n5. Exit");
         int answer = int.Parse(Console.ReadLine());
         switch (answer)
         {
@@ -130,18 +130,46 @@ void CharacterControl()
 
 void CreateCharacter()
 {
+    string house = "";
+    string houseDescription = "";
+    Console.Clear();
+    Console.WriteLine("Create a new wizard:");
+    Console.WriteLine("First name:");
+    string firstName = Console.ReadLine();
+    Console.WriteLine("Last name");
+    string lastName = Console.ReadLine();
+
+    Console.WriteLine("Choose your House:\n1. Hufflepuff\n2. Griffindor\n3. Ravenclaw\n4. Slytherin");
     int input = int.Parse(Console.ReadLine());
     switch (input)
     {
         case 1:
+            house = "Hufflepuff";
+            houseDescription = "House of Hufflepuff";
             break;
         case 2:
+            house = "Griffindor";
+            houseDescription = "House of Griffindor";
             break;
         case 3:
-            CharacterControl();
+            house = "Ravenclaw";
+            houseDescription = "House of Ravenclaw";
+            break;
+        case 4:
+            house = "Slytherin";
+            houseDescription = "House of Slytherin";
             break;
     }
+
+
+    Character character = new(firstName, lastName, new House(house, houseDescription), 200, new List<Item>(),
+        new List<Spell>(), new List<Pet>());
+    character.DisplayCharacter();
+    Console.WriteLine("Press any key to continue");
+    Console.ReadKey();
+    CharacterControl();
 }
+
 
 void EditCharacter()
 {

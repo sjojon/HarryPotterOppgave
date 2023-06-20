@@ -41,14 +41,41 @@
             PersonalItems.Remove(item);
         }
 
+        public void AddSpell(Spell spell)
+        {
+            Spells.Add(spell);
+        }
+
+        public void RemoveSpell(Spell spell)
+        {
+            Spells.Remove(spell);
+        }
+
+        public void AddPet(Pet pet)
+        {
+            Pets.Add(pet);
+        }
+
+        public void RemovePet(Pet pet)
+        {
+            Pets.Remove(pet);
+        }
+
         public void InventoryItems()
         {
             Console.WriteLine("Inventory:");
             Console.WriteLine();
-            foreach (var item in PersonalItems)
+            if (PersonalItems.Count != 0)
             {
-                item.ItemDescription();
-                Console.WriteLine();
+                foreach (var item in PersonalItems)
+                {
+                    item.ItemDescription();
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("You don't own any items :(");
             }
         }
 
@@ -56,10 +83,17 @@
         {
             Console.WriteLine("Current known spells:");
             Console.WriteLine();
-            foreach (var spell in Spells)
+            if (Spells.Count != 0)
             {
-                spell.PrintSpellDescription();
-                Console.WriteLine();
+                foreach (var spell in Spells)
+                {
+                    spell.PrintSpellDescription();
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("You don't know any magic! Go learn some spells!");
             }
         }
 
