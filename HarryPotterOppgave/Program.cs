@@ -3,14 +3,14 @@
 
 Harry Potter oppgave!
 
-Du skal starte med å lage en harrypotter character klasse med egenskaper som er unike for hvordan de kan beskrives, 
+Du skal starte med å lage en harry potter character klasse med egenskaper som er unike for hvordan de kan beskrives, 
 eller hva de kan eie eller hva de kan gjøre.
 
 Eksempler er: 
 House: huffelpuff, griffindor, slytherin, ravenclaw
 Items: wand, owl, etc
 
-Få applikasjonen til å printe ut en introduksjon for charakteren, som sier noe om hva de heter, 
+Få applikasjonen til å printe ut en introduksjon for karakteren, som sier noe om hva de heter, 
 hvilket hus de er medlem av og hvilke items de har
 
 Karakteren skal ha mulighet til å gå inn i en Magibutikk, der kan de kjøpe et dyr:  ugle,rotte eller en katt. 
@@ -27,53 +27,7 @@ hokus pokus (fyrer av fyrverkerier)
 
 
 Dersom en karakter har en ugle, har de mulighet til å sende et brev med uglen til en annen karakter. 
-Karakteren som mottar brevet, får da brevet i inventoryen. Et brev inneholder en melding.
- */
-
-/*
-                    TODO: Original program.cs
- Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 200,
-    new List<Item>()
-    {
-        new("Compass", "Old, rusty compass that belonged to grandfather", 1, 25),
-        new("Oak Wand", "Plain wand made from Oak", 1, 40),
-        new("Glasses", "Normal round glasses", 1, 150),
-        new("Magical beans", "Beans that grow in one night", 5, 15),
-    },
-    new List<Spell>()
-    {
-        new("Vingardium leviosa", "Make things levitate"),
-        new("Hokus pokus", "Lights up fireworks"),
-        new("Luminos", "Lights up wand like a flashlight"),
-    },
-    new List<Pet>()
-    {
-    });
-
-MagicShop magicShop = new("The Black Toad", 5000,
-    new List<Item>()
-    {
-        new("Phoenix Wand", "Wand made from the ashes of a Phoenix", 4, 200),
-        new("Unicorn Wand", "Wand made from the horn of a unicorn", 2, 150),
-        new("Troll Wand", "Wand made from the bones of a troll", 6, 75),
-    },
-    new List<Pet>()
-    {
-        new("Herbert", "Send Letter", "Owl", 75),
-        new("Ratty", "Scouting in tight spaces", "Rat", 25),
-        new("Kitty", "Dark vision", "Cat", 50),
-    });
-
-Item wand = new("Wand", "Plain oak wand", 1);
-Item glasses = new("Glasses", "Normal round glasses", 1);
-Item magicalBeans = new("Magical beans", "Beans that grow in one night", 5);
-tim.AddItem(wand);
-tim.AddItem(glasses);
-tim.AddItem(magicalBeans);
-tim.DisplayCharacter();
-tim.InventoryItems();
-tim.ListOfSpells();
-tim.ListOfPets();
+Karakteren som mottar brevet, får da brevet i inventory. Et brev inneholder en melding.
  */
 
 using HarryPotterOppgave;
@@ -81,16 +35,16 @@ using HarryPotterOppgave;
 Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 200,
     new List<Item>()
     {
-        ItemList.Compass,
-        ItemList.Glasses,
-        ItemList.MagicalBeans,
-        WandList.OakWand
+        new("Compass", "Old, rusty compass that belonged to grandfather", 1, 25),
+        new("Glasses", "Normal round glasses", 1, 150),
+        new("Magical beans", "Beans that grow in one night", 5, 15),
+        new("Oak Wand", "Plain wand made from Oak", 1, 40)
     },
     new List<Spell>()
     {
-        SpellList.Vingardium,
-        SpellList.HokusPokus,
-        SpellList.Luminos
+        new("Vingardium leviosa", "Make things levitate"),
+        new("Hokus pokus", "Lights up fireworks"),
+        new("Luminos", "Lights up wand like a flashlight")
     },
     new List<Pet>()
     {
@@ -99,15 +53,15 @@ Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuf
 MagicShop magicShop = new("The Black Toad", 5000,
     new List<Item>()
     {
-        WandList.PhoenixWand,
-        WandList.UnicornWand,
-        WandList.TrollWand
+        new("Phoenix Wand", "Wand made from the ashes of a Phoenix", 1, 200),
+        new("Unicorn Wand", "Wand made from the horn of a unicorn", 1, 150),
+        new("Troll Wand", "Wand made from the bones of a troll", 1, 75)
     },
     new List<Pet>()
     {
-        PetList.Owl,
-        PetList.Rat,
-        PetList.Cat
+        new("Herbert", "Send Letter", "Owl", 75),
+        new("Ratty", "Scouting in tight spaces", "Rat", 25),
+        new("Kitty", "Dark vision", "Cat", 50)
     });
 
 tim.DisplayCharacter();
