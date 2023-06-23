@@ -83,7 +83,7 @@ void Menu()
         Console.WriteLine("Welcome to Hogwarts!");
         Console.WriteLine("What do you want to do?");
         Console.WriteLine(
-            "1. Character editing\n2. Do magic\n3. Enter magic shop\n4. Send letter (Must own owl)\n5. Exit");
+            "1. Character editing\n2. Choose character\n3. Exit");
         int answer = int.Parse(Console.ReadLine());
         switch (answer)
         {
@@ -91,15 +91,9 @@ void Menu()
                 CharacterControl();
                 break;
             case 2:
-                DoMagic();
+                ChooseCharacter();
                 break;
             case 3:
-                MagicShopMenu();
-                break;
-            case 4:
-                SendLetter();
-                break;
-            case 5:
                 flag = false;
                 break;
         }
@@ -325,11 +319,62 @@ void EditPets(Character character)
     throw new NotImplementedException();
 }
 
-void DoMagic()
+void ChooseCharacter()
+{
+    Console.Clear();
+    foreach (var character in characters)
+    {
+        Console.WriteLine($"ID: {character.Id}\nName: {character.FirstName} {character.LastName}");
+    }
+
+    Console.WriteLine("Enter the ID of the character you want to use");
+    int input = int.Parse(Console.ReadLine());
+    bool idFound = false;
+    foreach (var character in characters)
+    {
+        if (character.Id == input)
+        {
+            ChosenCharacterMenu(character);
+            idFound = true;
+            break;
+        }
+    }
+
+    if (!idFound)
+    {
+        Console.WriteLine("Please enter correct number! Press any key to continue");
+        Console.ReadKey();
+        ChooseCharacter();
+    }
+}
+
+void ChosenCharacterMenu(Character character)
+{
+    Console.Clear();
+    Console.WriteLine("1. Do magic\n2. Enter magic shop\n3. Send letter (Must own owl)\n4. Exit");
+    int answer = int.Parse(Console.ReadLine());
+    switch (answer)
+    {
+        case 1:
+            DoMagic(character);
+            break;
+        case 2:
+            MagicShopMenu(character);
+            break;
+        case 3:
+            SendLetter(character);
+            break;
+        case 4:
+            Menu();
+            break;
+    }
+}
+
+void DoMagic(Character character)
 {
 }
 
-void MagicShopMenu()
+void MagicShopMenu(Character character)
 {
     Console.Clear();
     Console.WriteLine($"Welcome to {magicShop.Name} magic shop!");
@@ -348,6 +393,6 @@ void MagicShopMenu()
     }
 }
 
-void SendLetter()
+void SendLetter(Character character)
 {
 }
