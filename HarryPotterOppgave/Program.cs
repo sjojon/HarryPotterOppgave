@@ -32,6 +32,8 @@ Karakteren som mottar brevet, får da brevet i inventory. Et brev inneholder en 
 
 using HarryPotterOppgave;
 
+List<Character> characters = new();
+
 Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuff"), 200,
     new List<Item>()
     {
@@ -50,6 +52,8 @@ Character tim = new("Tim", "Timber", new House("Hufflepuff", "House of Hufflepuf
     {
     });
 
+characters.Add(tim);
+
 MagicShop magicShop = new("The Black Toad", 5000,
     new List<Item>()
     {
@@ -64,10 +68,10 @@ MagicShop magicShop = new("The Black Toad", 5000,
         new("Kitty", "Dark vision", "Cat", 50)
     });
 
-tim.DisplayCharacter();
-tim.InventoryItems();
-tim.ListOfSpells();
-tim.ListOfPets();
+//tim.DisplayCharacter();
+//tim.InventoryItems();
+//tim.ListOfSpells();  // TODO: Slå på disse for testing av Tim.
+//tim.ListOfPets();
 Menu();
 
 void Menu()
@@ -75,7 +79,7 @@ void Menu()
     bool flag = true;
     while (flag)
     {
-        //Console.Clear(); // TODO: Slå av denne for testing av Tim.
+        Console.Clear(); // TODO: Slå av denne for testing av Tim.
         Console.WriteLine("Welcome to Hogwarts!");
         Console.WriteLine("What do you want to do?");
         Console.WriteLine(
@@ -159,6 +163,7 @@ void CreateCharacter()
 
     Character character = new(firstName, lastName, new House(house, houseDescription), 200, new List<Item>(),
         new List<Spell>(), new List<Pet>());
+    characters.Add(character);
     character.DisplayCharacter();
     Console.WriteLine("Press any key to continue");
     Console.ReadKey();
@@ -168,17 +173,156 @@ void CreateCharacter()
 
 void EditCharacter()
 {
+    Console.Clear();
+    Console.WriteLine("Who do you want to edit?");
+    Console.WriteLine();
+    foreach (var character in characters)
+    {
+        Console.WriteLine($"ID: {character.Id}\nName: {character.FirstName} {character.LastName}");
+    }
+
+    Console.WriteLine("Enter the ID of the character you want to edit");
+    int input = int.Parse(Console.ReadLine());
+    bool idFound = false;
+    foreach (var character in characters)
+    {
+        if (character.Id == input)
+        {
+            EditMenu(character);
+            idFound = true;
+            break;
+        }
+    }
+
+    if (!idFound)
+    {
+        Console.WriteLine("Please enter correct number! Press any key to continue");
+        Console.ReadKey();
+        EditCharacter();
+    }
+}
+
+void EditMenu(Character character)
+{
+    Console.Clear();
+    character.DisplayCharacter();
+    character.InventoryItems();
+    character.ListOfSpells();
+    character.ListOfPets();
+    Console.WriteLine("What do you want to edit?");
+    Console.WriteLine(
+        "1. First Name\n2. Last Name\n3. House\n4. Money\n5. Items\n6. Spells\n7. Pets\n8. Back to edit menu");
     int input = int.Parse(Console.ReadLine());
     switch (input)
     {
         case 1:
+            EditFirstName(character);
             break;
         case 2:
+            EditLastName(character);
             break;
         case 3:
+            EditHouse(character);
+            break;
+        case 4:
+            EditMoney(character);
+            break;
+        case 5:
+            EditItems(character);
+            break;
+        case 6:
+            EditSpells(character);
+            break;
+        case 7:
+            EditPets(character);
+            break;
+        case 8:
             CharacterControl();
             break;
     }
+}
+
+void EditFirstName(Character character)
+{
+    Console.Clear();
+    Console.WriteLine("Enter new firstname:");
+    string newFirstName = Console.ReadLine();
+    character.UpdateFirstName(newFirstName);
+    Console.Clear();
+    //character.DisplayCharacter();
+    Console.WriteLine("Firstname updated, press any key to return to the character edit menu.");
+    Console.ReadKey();
+    EditMenu(character);
+}
+
+void EditLastName(Character character)
+{
+    Console.Clear();
+    Console.WriteLine("Enter new lastname:");
+    string newLastName = Console.ReadLine();
+    character.UpdateLastName(newLastName);
+    Console.Clear();
+    //character.DisplayCharacter();
+    Console.WriteLine("Lastname updated, press any key to return to the character edit menu.");
+    Console.ReadKey();
+    EditMenu(character);
+}
+
+void EditHouse(Character character)
+{
+    Console.Clear();
+    Console.WriteLine("Choose your House:\n1. Hufflepuff\n2. Griffindor\n3. Ravenclaw\n4. Slytherin");
+    int input = int.Parse(Console.ReadLine());
+
+    switch (input)
+    {
+        case 1:
+            character.UpdateHouse("Hufflepuff", "House of Hufflepuff");
+            break;
+        case 2:
+            character.UpdateHouse("Griffindor", "House of Griffindor");
+            break;
+        case 3:
+            character.UpdateHouse("Ravenclaw", "House of Ravenclaw");
+            break;
+        case 4:
+            character.UpdateHouse("Slytherin", "House of Slytherin");
+            break;
+    }
+
+    Console.Clear();
+    character.DisplayCharacter();
+    Console.WriteLine("House updated, press any key to return to the character edit menu.");
+    Console.ReadKey();
+    EditMenu(character);
+}
+
+void EditMoney(Character character)
+{
+    Console.Clear();
+    Console.WriteLine("Enter new amount of money:");
+    int newMoney = int.Parse(Console.ReadLine());
+    character.UpdateMoney(newMoney);
+    Console.Clear();
+    character.DisplayCharacter();
+    Console.WriteLine("Money updated, press any key to return to the character edit menu.");
+    Console.ReadKey();
+    EditMenu(character);
+}
+
+void EditItems(Character character)
+{
+    throw new NotImplementedException();
+}
+
+void EditSpells(Character character)
+{
+    throw new NotImplementedException();
+}
+
+void EditPets(Character character)
+{
+    throw new NotImplementedException();
 }
 
 void DoMagic()

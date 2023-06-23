@@ -6,6 +6,8 @@
         public string LastName { get; private set; }
         public House House { get; private set; }
         public int Money { get; private set; }
+        public int Id { get; private set; }
+        public static int NextId { get; private set; } = 0;
         public List<Item> PersonalItems { get; private set; }
         public List<Spell> Spells { get; private set; }
         public List<Pet> Pets { get; private set; }
@@ -21,6 +23,8 @@
             PersonalItems = personalItems;
             Spells = spells;
             Pets = pets;
+            Id = NextId;
+            NextId++;
         }
 
         public void DisplayCharacter()
@@ -114,6 +118,26 @@
                 Console.WriteLine("You don't own any pets!");
                 Console.WriteLine();
             }
+        }
+
+        public void UpdateFirstName(string firstName)
+        {
+            FirstName = firstName;
+        }
+
+        public void UpdateLastName(string lastName)
+        {
+            LastName = lastName;
+        }
+
+        public void UpdateHouse(string house, string houseDescription)
+        {
+            House = new House(house, houseDescription);
+        }
+
+        public void UpdateMoney(int money)
+        {
+            Money = money;
         }
     }
 }
