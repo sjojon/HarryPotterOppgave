@@ -378,7 +378,7 @@ void MagicShopMenu(Character character)
 {
     Console.Clear();
     Console.WriteLine($"Welcome to {magicShop.Name} magic shop!");
-    Console.WriteLine("What can we do for you today?");
+    Console.WriteLine($"What can we do for you today {character.FirstName}?");
     Console.WriteLine("1. Buy pet\n2. Buy wand\n3. Main menu");
     int input = int.Parse(Console.ReadLine());
     switch (input)
