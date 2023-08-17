@@ -395,4 +395,5 @@ void MagicShopMenu(Character character)
 
 void SendLetter(Character character)
 {
+    throw new NotImplementedException();
 }
